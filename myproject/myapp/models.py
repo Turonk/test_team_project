@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Invoice_position(models.Model):
     invoce_name = models.CharField(max_length=200,verbose_name=('Наименование по накладной'))
     invoce_number = models.CharField(max_length=50,verbose_name=('Номер накладной'))
@@ -20,3 +21,13 @@ class Invoice_position(models.Model):
     class Meta:
         verbose_name = 'Позиция по накладной'
         verbose_name_plural = 'Позиции по накладным'
+
+class Topic(models.Model):
+    title = models.CharField(max_length=200,verbose_name=('Тема'),null=True,)
+    description = models.TextField(verbose_name=('Описание'), blank=True, null=True, )
+    def __str__(self):
+        return self.title
+    class Meta:
+        verbose_name = 'Тему'
+        verbose_name_plural = 'Темы'
+
