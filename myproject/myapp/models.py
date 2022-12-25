@@ -31,3 +31,15 @@ class Topic(models.Model):
         verbose_name = 'Тему'
         verbose_name_plural = 'Темы'
 
+class Request_Man(models.Model):
+    topic = models.ForeignKey(
+        Topic,
+        on_delete=models.CASCADE,
+        verbose_name=('Тема проекта')
+    )
+    pub_date = models.DateTimeField(auto_now = True, verbose_name=('Дата'))
+    fio = models.CharField(max_length=100, verbose_name=('ФИО'), default='')
+    class Meta:
+        verbose_name = 'Заявка'
+        verbose_name_plural = 'Заявки'
+
